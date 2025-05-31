@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-05-31T17:29:25.400Z",
+    "end": "2025-05-31T17:29:25.563Z",
+    "duration": 163,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "55f3c7a9-63e6-469e-ae11-d75ee99047fc",
+      "title": "",
+      "fullFile": "cypress/e2e/purchaseFlow.cy.js",
+      "file": "cypress/e2e/purchaseFlow.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fe0e2ef0-1ee7-48ee-9bee-46baa71dcb5d",
+          "title": "Complete Purchase Flow using POM",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should complete the entire flow successfully and pass accessibility and performance audits",
+              "fullTitle": "Complete Purchase Flow using POM Should complete the entire flow successfully and pass accessibility and performance audits",
+              "timedOut": null,
+              "duration": 131,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const quantity = Math.floor(Math.random() * 20) + 1;\n// Step 1: Visit the homepage\nHomePage.visitHomePage();\n// Espera a página carregar e roda auditorias\ncy.lighthouse({\n  accessibility: true,\n  performance: true,\n  'best-practices': true,\n  seo: true\n}).then(report => {\n  // aqui você pode logar ou salvar o relatório, se quiser\n  console.log('Lighthouse report:', report);\n});\ncy.pa11y().then(results => {\n  console.log('Pa11y report:', results);\n});\n// Step 2: Navigate to the Products page\nHomePage.goToProducts();\n// Step 3: Select the third product from the list\nProductPage.selectProduct3(quantity);\n// Step 4: Enter a random quantity between 1 and 20\nCartPage.validateProduct(quantity);\n// Step 6: View the cart and Proceed to checkout\nCartPage.proceedToCheckout();\n// Step 7: Register a new user with random data\nCartPage.goToLoginPage();\n// Step 8: Proceed to checkout again after registration\nSignupPage.fillSignupForm();\n// Step 9: Confirm the order\nPaymentPage.completeOrder();\nConfirmationPage.validateOrderSuccess();\n// Step 10: Log out of the account\nConfirmationPage.logout();",
+              "err": {
+                "message": "ReferenceError: HomePage is not defined",
+                "estack": "ReferenceError: HomePage is not defined\n    at Context.eval (webpack://qa-automation-test/./cypress/e2e/purchaseFlow.cy.js:6:4)\n    at runnable.fn (http://localhost:59585/__cypress/runner/cypress_runner.js:141400:19)\n    at callFn (http://localhost:59585/__cypress/runner/cypress_runner.js:160478:21)\n    at Runnable.run (http://localhost:59585/__cypress/runner/cypress_runner.js:160465:7)\n    at <unknown> (http://localhost:59585/__cypress/runner/cypress_runner.js:166537:30)\n    at PassThroughHandlerContext.finallyHandler (http://localhost:59585/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (http://localhost:59585/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:59585/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:59585/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "45d8b901-2323-4b1b-856d-0c3495a50fbb",
+              "parentUUID": "fe0e2ef0-1ee7-48ee-9bee-46baa71dcb5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "45d8b901-2323-4b1b-856d-0c3495a50fbb"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 131,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

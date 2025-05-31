@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-31T14:07:26.178Z",
+    "end": "2025-05-31T14:08:39.588Z",
+    "duration": 73410,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5d8cfa0a-bb32-4194-aca4-27dcf9b7d9ea",
+      "title": "",
+      "fullFile": "cypress/e2e/purchaseFlow.cy.js",
+      "file": "cypress/e2e/purchaseFlow.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1bb70adb-367c-4890-9594-238800282326",
+          "title": "Complete Purchase Flow using POM",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should complete the entire flow successfully",
+              "fullTitle": "Complete Purchase Flow using POM Should complete the entire flow successfully",
+              "timedOut": null,
+              "duration": 70162,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const quantity = Math.floor(Math.random() * 20) + 1;\n// Step 1: Visit the homepage\n_HomePage.default.visitHomePage();\n// Step 2: Navigate to the Products page\n_HomePage.default.goToProducts();\n// Step 3: Select the third product from the list\n_ProductPage.default.selectProduct3(quantity);\n// Step 4: Enter a random quantity between 1 and 20\n_CartPage.default.validateProduct(quantity);\n// Step 6: View the cart and Proceed to checkout\n_CartPage.default.proceedToCheckout();\n// Step 7:  Register a new user with random data\n_CartPage.default.goToLoginPage();\n// Step 8: Proceed to checkout again after registration\n_SignupPage.default.fillSignupForm();\n//Step 9: Confirm the order\n_PaymentPage.default.completeOrder();\n_ConfirmationPage.default.validateOrderSuccess();\n// Step 10: Log out of the account\n_ConfirmationPage.default.logout();",
+              "err": {},
+              "uuid": "87a5e090-8a90-42af-9f9d-de50a903f34e",
+              "parentUUID": "1bb70adb-367c-4890-9594-238800282326",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "87a5e090-8a90-42af-9f9d-de50a903f34e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 70162,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
