@@ -3,6 +3,7 @@ node_modules
 # Node modules and dependencies
 node_modules/
 chromewebdata/
+screenshots/
 
 # Cypress output files
 cypress/videos/
